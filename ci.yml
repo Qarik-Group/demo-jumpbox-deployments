@@ -1,0 +1,41 @@
+pipeline:
+  name: jumpbox-platform-pipeline
+  git:
+    owner: starkandwayne
+    repo:  demo-jumpbox-deployments
+    branch: latest-jumpbox-aws-codex
+    private_key: (( vault "concourse/main/github:private_key" ))
+
+  vault:
+    url:    https://10.4.1.7
+    verify: no
+    role: (( vault "secret/uswest2demo/full/concourse/approle/concourse:approle-id" ))
+    secret: (( vault "secret/uswest2demo/full/concourse/approle/concourse:approle-secret" ))
+  
+  slack: 
+    channel: '#botspam'
+    webhook: (( vault "concourse/genesis/slack:webhook" ))
+
+  boshes:
+    uswest2demo-a:
+      alias:    uswest2demo-a.yml
+      url:      https://10.4.1.4:25555
+      ca_cert:  (( vault "secret/dev/bosh/ssl/ca:certificate" ))
+      username: admin
+      password: (( vault "secret/dev/bosh/users/admin:password" ))
+    uswest2demo-b:
+      alias:    uswest2demo-b
+      url:      https://10.4.1.4:25555
+      ca_cert:  (( vault "secret/uswest2demo/bosh/ssl/ca:certificate" ))
+      username: admin
+      password: (( vault "secret/uswest2demo/bosh/users/admin:password" ))
+    
+  layouts:
+    default: |+
+      auto *uswest2demo-a
+      uswest2demo-a -> uswest2demo-b
+
+  groups:
+    default:
+    - uswest2demo-a
+    - uswest2demo-b

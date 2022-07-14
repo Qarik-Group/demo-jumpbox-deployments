@@ -49,7 +49,7 @@ To change the secrets provider for the environments in this repo:
 
     genesis secrets-provider --url https://example.com:8200 --insecure
 
-... or clear it to use safe's currently targeted jumpbox:
+... or clear it to use safe's currently targeted vault:
 
     genesis secrets-provider --clear
 
