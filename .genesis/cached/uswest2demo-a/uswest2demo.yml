@@ -1,0 +1,13 @@
+params:
+  users:
+    - name:  cweibel
+      shell: /bin/bash
+      ssh_keys:
+        # you can add more keys as needed...
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+m//AHyfHcgTenRoDTRkpyK33ZN7+xZZCHDcFW92DUeIdZL78+u5CiEIgYskwzJXl1GbrVXcKvKEVR9AYO8kCtmRwqQKDPNUeOkMoBVhrOvz/AeUqFI7RyyU77BfTooVtvlRrtsIODDyEwFLcnMq3O5REMfxDwCrxmXarNfMo01UPiz3+14W0XJ4i4qvFDF3wZ8eDSQbGLMHIzcGMnE53YIZgFonvYGvoWnkYR0AGoS7owxBNqi0xrPATo01TZ5UWhqKhmrMHz8aIbgHNOC9PfkqrDkkGLiPzcChJW9a0xP4N+EJlmJTw71A9F2uYgwC5uy8STYvEucXZ8BbMekGYY06xloIpZbgNPoHeRDviO273urXvytUQoj3FO1M4PMQqYa3Fw4E0GsO8NFdab4qmp3gSbQ3ZsrcE09zIExN9Wa5FARWTvz2UAZ2gxHjLZYZMRpzi2SIwfsXSNiIjjZA8wsX+B0iFWW9diFpcmKUs9tHd3OXNSEjBFyk9+aS10iM= cweibel@cweibel-mbp
+
+    - name:  xgao
+      shell: /bin/bash
+      ssh_keys:
+        # you can add more keys as needed...
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC5u6oGXFP92HF25u4ZTVN5OE6QZQUsglK0LZZU2y2aaOgwJTo7xKP8R9aisXiNx0mOExpA24cS8M+L/aPr6NhZzUaR68/ZMLyVGlAT+9ND5hq0Q2KspH5lc3JBvEz7Mmul2MSoCf9Xf3vsLqyeRLLoVbRwMTsk66XAVrforAvSmSXhuSVQzaEqLpxFXH8sXZTe0OpIEacI/e8W9WA/TEFlnb2wm54vF8OsgC85sKPqHt3w2L6f+/AoqGl//AQHuz+/37TkCA6hspuhGxcTD12bcE3JB2hcKg25ElxWr6WJIRW+NzaXJNeiTKO3Xdi5BT0SQVRo9+VPMtv0dcUljOwhTYHFHtnXPzCnq1QfbDJOfP7l/7EPqjJQ9ce3H/PPHxdcOwrhZEqKAfpOFsgH96K9ILKIL4CfXDAGtMtZNCT+1Bg3KQa0LhODmiltUZZ/qxPJ2uUEdoqRpnco6fmevz4AGKbC83UoFtc6tLFdouQqgLOr/fO219xY5o0p322XfAaQPIFQgTz/15ngLsJniPxjAyCwaGdANkIfWju39El5mwYW+Wh8reEjos64DxX3earbSv2ndzpLH1jecbqEJL5KVqk5cBP5qrb5jqW0OBX9Y2use2qdmuwnelwdiOFfvvT+eRAYOjHL0bs5Lz8Rd3vcSJsyqnEqkppJ80mw9LMY3Q== gaoxiujiao@gmal.com

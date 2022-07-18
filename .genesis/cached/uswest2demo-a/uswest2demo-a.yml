@@ -1,0 +1,23 @@
+kit:
+  name:    jumpbox
+  version: 1.3.2
+
+
+genesis:
+  env:            uswest2demo-a
+  min_version:    2.7.11
+  bosh_env:       uswest2demo
+
+params:
+  jumpbox_static_ip: 10.4.1.10
+  jumpbox_network: default
+  jumpbox_vm_type: default
+  jumpbox_disk_pool: default
+
+instance_groups:
+- networks:
+  - (( replace ))
+  - name: default
+    static_ips:
+    - 10.4.1.10
+
