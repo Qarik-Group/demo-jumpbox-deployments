@@ -23,10 +23,18 @@ disk_types:
     type: gp2
   disk_size: 50000
   name: large
+- cloud_properties:
+    type: gp2
+  disk_size: 50000
+  name: bosh
+- cloud_properties:
+    type: gp3
+  disk_size: 10240
+  name: concourse
 exodus:
   bosh: uswest2demo
-  dated: 2022-02-15 17:04:25 +0000
-  deployer: cweibel
+  dated: 2022-07-18 14:56:57 +0000
+  deployer: unknown
   features: ""
   is_director: false
   kit_is_dev: false
@@ -137,8 +145,132 @@ networks:
     static:
     - 10.4.3.6-10.4.3.16
   type: manual
-- name: vip
-  type: vip
+- name: concourse
+  subnets:
+  - azs:
+    - z1
+    cloud_properties:
+      subnet: subnet-0f56fcba8b1ba95b3
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.1.1
+    range: 10.4.1.0/24
+    reserved:
+    - 10.4.1.0-10.4.1.99
+    static:
+    - 10.4.1.100-10.4.1.106
+  - azs:
+    - z2
+    cloud_properties:
+      subnet: subnet-04066d0a30fd1c020
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.2.1
+    range: 10.4.2.0/24
+    reserved:
+    - 10.4.2.0-10.4.2.99
+    static:
+    - 10.4.2.100-10.4.2.106
+  - azs:
+    - z3
+    cloud_properties:
+      subnet: subnet-0f2b10a0d103f3c83
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.3.1
+    range: 10.4.3.0/24
+    reserved:
+    - 10.4.3.0-10.4.3.99
+    static:
+    - 10.4.3.100-10.4.3.106
+  type: manual
+- name: concourse-full
+  subnets:
+  - azs:
+    - z1
+    cloud_properties:
+      subnet: subnet-0f56fcba8b1ba95b3
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.1.1
+    range: 10.4.1.0/24
+    reserved:
+    - 10.4.1.0-10.4.1.99
+    static:
+    - 10.4.1.150-10.4.1.156
+  - azs:
+    - z2
+    cloud_properties:
+      subnet: subnet-04066d0a30fd1c020
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.2.1
+    range: 10.4.2.0/24
+    reserved:
+    - 10.4.2.0-10.4.2.99
+    static:
+    - 10.4.2.150-10.4.2.156
+  - azs:
+    - z3
+    cloud_properties:
+      subnet: subnet-0f2b10a0d103f3c83
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.3.1
+    range: 10.4.3.0/24
+    reserved:
+    - 10.4.3.0-10.4.3.99
+    static:
+    - 10.4.3.150-10.4.3.156
+  type: manual
+- name: dev
+  subnets:
+  - azs:
+    - z1
+    cloud_properties:
+      subnet: subnet-0ea631cc3ad19e04f
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.16.1
+    range: 10.4.16.0/24
+    reserved:
+    - 10.4.16.0-10.4.16.3
+    static:
+    - 10.4.16.4-10.4.16.16
+  - azs:
+    - z2
+    cloud_properties:
+      subnet: subnet-09a05edb82702379b
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.17.1
+    range: 10.4.17.0/24
+    reserved:
+    - 10.4.17.0-10.4.17.3
+    static:
+    - 10.4.17.4-10.4.17.16
+  - azs:
+    - z3
+    cloud_properties:
+      subnet: subnet-0dd034854c197dc41
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.18.1
+    range: 10.4.18.0/24
+    reserved:
+    - 10.4.18.0-10.4.18.3
+    static:
+    - 10.4.18.4-10.4.18.16
+  type: manual
 params:
   banner: null
   bashrc: null
@@ -186,11 +318,29 @@ vm_types:
     ephemeral_disk:
       size: 3000
       type: gp2
-    instance_type: t2.micro
+    instance_type: t2.small
   name: default
 - cloud_properties:
     ephemeral_disk:
       size: 30000
       type: gp2
-    instance_type: m4.large
+    instance_type: t3.large
   name: large
+- cloud_properties:
+    ephemeral_disk:
+      size: 25000
+      type: gp2
+    instance_type: t3.medium
+  name: bosh
+- cloud_properties:
+    ephemeral_disk:
+      size: 10240
+      type: gp3
+    instance_type: t3.large
+  name: concourse
+- cloud_properties:
+    ephemeral_disk:
+      size: 65536
+      type: gp3
+    instance_type: t3.medium
+  name: concourse-worker
