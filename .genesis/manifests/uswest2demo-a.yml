@@ -33,7 +33,7 @@ disk_types:
   name: concourse
 exodus:
   bosh: uswest2demo
-  dated: 2022-07-18 14:56:57 +0000
+  dated: 2022-07-18 15:01:09 +0000
   deployer: unknown
   features: ""
   is_director: false
