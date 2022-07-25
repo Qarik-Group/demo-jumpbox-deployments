@@ -31,14 +31,9 @@ disk_types:
     type: gp3
   disk_size: 10240
   name: concourse
-- cloud_properties:
-    encrypted: true
-    type: gp3
-  disk_size: 10240
-  name: 10GB
 exodus:
   bosh: uswest2demo
-  dated: 2022-07-25 09:21:09 +0000
+  dated: 2022-07-25 14:23:44 +0000
   deployer: unknown
   features: ""
   is_director: false
@@ -292,6 +287,22 @@ networks:
     static:
     - 10.4.63.4-10.4.63.6
   type: manual
+- name: vault-br
+  subnets:
+  - azs:
+    - z1
+    cloud_properties:
+      subnet: subnet-0c7b77e3f74bc0b12
+    dns:
+    - 1.1.1.1
+    - 8.8.4.4
+    gateway: 10.4.67.1
+    range: 10.4.67.0/24
+    reserved:
+    - 10.4.67.0-10.4.67.3
+    static:
+    - 10.4.67.4-10.4.67.6
+  type: manual
 params:
   banner: null
   bashrc: null
@@ -365,17 +376,3 @@ vm_types:
       type: gp3
     instance_type: t3.medium
   name: concourse-worker
-- cloud_properties:
-    ephemeral_disk:
-      encrypted: true
-      size: 10240
-      type: gp3
-    instance_type: t3.medium
-  name: minimal
-- cloud_properties:
-    ephemeral_disk:
-      encrypted: true
-      size: 8192
-      type: gp3
-    instance_type: t3.small
-  name: small
